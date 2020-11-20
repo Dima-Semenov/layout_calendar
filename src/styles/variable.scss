@@ -1,0 +1,14 @@
+$widthDiv: 100px;
+$heightDiv: 100px;
+
+$days: (
+  "mon": 0,
+  "tue": 1 * ($widthDiv + 1px),
+  "wed": 2 * ($widthDiv + 1px),
+  "thu": 3 * ($widthDiv + 1px),
+  "fri": 4 * ($widthDiv + 1px),
+  "sat": 5 * ($widthDiv + 1px),
+  "sun": 6 * ($widthDiv + 1px),
+);
+
+$month_day :(28,29,30,31);

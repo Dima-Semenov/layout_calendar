@@ -1,3 +1,48 @@
-body {
-  margin: 0;
+@import "resets";
+@import "variable";
+
+.calendar {
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+  max-width: 707px;
+
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $widthDiv;
+    height: $heightDiv;
+    background-color: #eee;
+    margin: 0 1px 1px 0;
+    border: 1px solid black;
+    cursor: pointer;
+    transition-duration: 0.5s;
+  }
+
+  & > div:hover {
+    background-color: pink;
+    transform: translate(0, -20px);
+  }
+
+}
+
+@for $i from 1 through 31 {
+  .calendar > div:nth-child(#{$i})::after {
+    content: "#{$i}";
+  }
+}
+
+@each $day, $value in $days {
+  .calendar-#{$day} > div:first-child {
+    margin-left: $value;
+  }
+}
+
+@each $day in $month_day {
+  .calendar-#{$day} {
+    div:not(:nth-child(-n + #{$day})) {
+      display: none;
+    }
+  }
 }
